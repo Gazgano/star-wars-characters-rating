@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>Sign up</h1>
+    
+    <form (ngSubmit)="onFormSubmit()">
+        <input #email [formControl]="emailFormControl" name="email" placeholder="Email">
+        <input [formControl]="passwordFormControl" name="password" placeholder="Password" type="password">
+        <div class="buttons">
+            <a [routerLink]="'/login'"><button>Back</button></a>
+            <button *ngIf="!(isLoading$ | async)" color="primary" type="submit">Sign Up</button>
+        </div>
+        <div *ngIf="isLoading$ | async" class="loading"><span>Loggin in...</span></div>
+    </form>
+</div>

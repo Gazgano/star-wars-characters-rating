@@ -3,8 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LoginComponent } from './components/login/login.component';
+import { SharedModule } from '@app/shared/shared.module';
+import { SignupComponent } from './components/signup/signup.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -12,10 +14,12 @@ import { LoginComponent } from './components/login/login.component';
     BrowserModule,
     HttpClientModule,
     RouterModule,
+    SharedModule,
+    ReactiveFormsModule,
   ],
   declarations: [
-    PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ]
 })
 export class CoreModule { }
