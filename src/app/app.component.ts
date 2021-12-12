@@ -4,6 +4,7 @@ import 'firebase/auth';
 import 'firebase/storage';
 
 import { environment } from '../environments/environment'
+import { AuthService } from './core/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +15,10 @@ export class AppComponent implements OnInit {
   
   title = 'star-wars-characters-rating';
   
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
     firebase.initializeApp(environment.firebase);
+    this.authService.initializeAuth();
   }
 }
