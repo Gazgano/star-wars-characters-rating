@@ -1,10 +1,10 @@
 <div class="container">
     <h1>Log in</h1>
     
-    <form (ngSubmit)="onSubmit()">
+    <form>
         <input #email [formControl]="emailFormControl" name="email" placeholder="Email" tabindex="1">
         <input [formControl]="passwordFormControl" name="password" placeholder="Password" type="password" tabindex="2">
-        <button *ngIf="!isLoading" color="primary" tabindex="3" type="submit">Log in</button>
+        <button *ngIf="!isLoading" color="primary" tabindex="3" (click)="onSubmit()">Log in</button>
         <div *ngIf="isLoading" class="loading"><span>Loggin in...</span></div>
     </form>
     

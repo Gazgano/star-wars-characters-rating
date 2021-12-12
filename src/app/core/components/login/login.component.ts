@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from '@app/core/services/auth.service';
+import { finalize, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,9 @@ export class LoginComponent implements OnInit {
   }
 
   private signIn(email: string, password: string) {
-    this.authService.signInWithEmailAndPassword(email, password).subscribe(() => this.router.navigateByUrl('/'))
+    this.authService.signInWithEmailAndPassword(email, password).pipe(
+      tap(console.log),
+      finalize(() => this.isLoading = false)
+    ).subscribe()
   }
 }

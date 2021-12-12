@@ -8,7 +8,7 @@ const routes: Routes = [
   { 
     path: 'home', 
     loadChildren: () => import('@app/home/home.module').then(m => m.HomeModule),
-    canLoad: [AuthGuard]
+    // canLoad: [AuthGuard]
   },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },

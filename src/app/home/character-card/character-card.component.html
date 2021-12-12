@@ -1,0 +1,7 @@
+<div *ngIf="image$ | async as image; else loader" class="container">
+    <img [src]="image.src" class="image">
+</div>
+<button class="likeButton" (click)="like.emit(character.id)">Vote for {{ character.name }}</button>
+<ng-template #loader>
+    <div>Loading...</div>
+</ng-template>

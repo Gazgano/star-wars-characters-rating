@@ -1,0 +1,6 @@
+<div *ngIf="characterBattle$ | async as characterBattle" class="container">
+    <div class="duel">
+        <app-character-card [character]="characterBattle.left" (like)="like(characterBattle.left.id)"></app-character-card>
+        <app-character-card [character]="characterBattle.right" (like)="like(characterBattle.right.id)"></app-character-card>
+    </div>
+</div>

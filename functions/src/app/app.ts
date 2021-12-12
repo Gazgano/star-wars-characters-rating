@@ -2,14 +2,14 @@ import * as express from 'express';
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-// import FireStore from '../infra/firestore/firestore';
+import FireStore from '../infra/firestore/firestore';
 import { environment } from '../../../src/environments/environment';
 import Routes from './routes';
 
 export default class App {
     public app = express();
-    // private fireStore = new FireStore();
-    private routes = new Routes(/*this.app, this.fireStore*/);
+    private fireStore = new FireStore();
+    private routes = new Routes(this.app, this.fireStore, this.fireStore.documentManager);
 
     constructor() {
         this.configure();
